@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% set aside = "not" %}
+
+{% block body %}
+
+{# Nous allons traiter les données qui sont envoyés par les formiulaires #}
+
+
+{{ form_start(contact) }}
+   <h2 class="title">Contactez-nous</h2>
+   {% for message in app.session.flashBag.get("message") %}
+      <div class="alert {{ app.session.get("status")}}">{{ message }}</div>
+   {% endfor %}
+{{ form_end(contact) }}
+
+{% endblock %}
